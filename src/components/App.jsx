@@ -25,14 +25,13 @@ function App() {
 
 
 // ---------------------------
-    const notifyParams = {
-        autoClose: 1500,
+    const notify = () => toast('Enter text for search images pls 🙏', {
+        autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         progress: undefined,
-    }
-    const notify = () => toast('Enter text for search images pls 🙏', notifyParams)
+    })
 
     const loadMoreBtn = () => {
         setPage(prev => prev + 1)
@@ -42,7 +41,6 @@ function App() {
       setHits([])
       setPage(1)
       setSearchValue(query)
-      notify()
     }
 
     const openModal = (query) => {
@@ -88,7 +86,7 @@ function App() {
             {isLoading && <Loader />}
             {totalPages > page && !isLoading && searchValue && <LoadMoreBtn onClick={loadMoreBtn} />}
             <ImageModal isClose={closeModal} isOpen={modalIsOpen} modalImage={modalImage}/>
-            {!searchValue && <ToastContainer />}
+            <ToastContainer />
         </div>
     )
 }

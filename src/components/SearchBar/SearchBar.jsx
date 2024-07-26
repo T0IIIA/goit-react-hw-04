@@ -1,13 +1,16 @@
 import { Field, Form, Formik } from 'formik';
 import s from './SearchBr.module.css'
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ onSubmit, notify }) => {
 
   const initValues = {
     search: ''
   }
 
   const handleSubmit = (values, actions) => {
+    if(!values.search){
+      return notify()
+    }
     onSubmit(values.search)
     actions.resetForm()
   }
