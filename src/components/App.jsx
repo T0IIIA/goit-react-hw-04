@@ -8,6 +8,9 @@ import Loader from './Loader/Loader'
 import ErrorMessage from './ErrorMessage/ErrorMessage'
 import ImageModal from './ImageModal/ImageModal'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 // ---------------------------
 function App() {
@@ -22,6 +25,15 @@ function App() {
 
 
 // ---------------------------
+    const notifyParams = {
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+    }
+    const notify = () => toast('Enter text for search images pls 🙏', notifyParams)
+
     const loadMoreBtn = () => {
         setPage(prev => prev + 1)
     }
@@ -30,6 +42,7 @@ function App() {
       setHits([])
       setPage(1)
       setSearchValue(query)
+      notify()
     }
 
     const openModal = (query) => {
@@ -43,11 +56,13 @@ function App() {
     }
 
 
+
 // -----------API-------------
     useEffect(() => {
         if(!searchValue){
             return
         }
+
         const getData = async () => {
             try {
                 setIsError(false)
@@ -67,12 +82,13 @@ function App() {
     
     return (
         <div className={s.container}>
-            <SearchBar onSubmit={handleSetQuery} />
+            <SearchBar onSubmit={handleSetQuery} notify={notify} />
             <ImageGallery items={hits} onOpen={openModal} />
             {isError && <ErrorMessage /> }
             {isLoading && <Loader />}
-            {totalPages > page && !isLoading && <LoadMoreBtn onClick={loadMoreBtn} />}
+            {totalPages > page && !isLoading && searchValue && <LoadMoreBtn onClick={loadMoreBtn} />}
             <ImageModal isClose={closeModal} isOpen={modalIsOpen} modalImage={modalImage}/>
+            {!searchValue && <ToastContainer />}
         </div>
     )
 }
