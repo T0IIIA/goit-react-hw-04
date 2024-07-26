@@ -1,0 +1,24 @@
+.btn {
+  color: rgb(1, 67, 81);
+  font-size: 14px;
+  padding: 6px 24px;
+  margin: 20px;
+  background-color: #e1f0f952;
+  border-radius: 7px;
+  border: 1.2px solid rgb(173, 221, 231);
+  letter-spacing: 0.03em;
+  transition: all ease 0.2s;
+  
+
+    &:hover{
+      color: rgba(255,255,255,1);
+      background-color: transparent;
+      border: 1.2px solid rgba(255,255,255,1);
+    }
+
+    &:active {
+      color: black;
+      background-color: #e1f0f946;
+      border: 1.2px solid rgba(0, 122, 147, 0.166)
+    }
+}

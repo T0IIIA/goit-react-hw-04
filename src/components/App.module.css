@@ -1,0 +1,36 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-color: rgba(0,122,147,1);
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 10px;
+  padding-top: 45px;
+  min-height: 368px;
+  transition: all ease 0.2ms;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}
