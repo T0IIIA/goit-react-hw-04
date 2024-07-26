@@ -31,6 +31,7 @@ function App() {
         closeOnClick: true,
         pauseOnHover: true,
         progress: undefined,
+        closeButton: false,
     })
 
     const loadMoreBtn = () => {
