@@ -32,6 +32,10 @@
   border: none;
   background-color: transparent;
   outline: none;
+
+   &::placeholder {
+    color: rgba(1, 66, 81, 0.539);
+   }
 }
 
 .btn {
