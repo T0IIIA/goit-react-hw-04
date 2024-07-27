@@ -25,13 +25,17 @@ function App() {
 
 
 // ---------------------------
-    const notify = () => toast('Enter text for search images pls 🙏', {
+    const notify = () => toast('Enter text for search pls 🙏', {
         autoClose: 2000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         progress: undefined,
         closeButton: false,
+        style: {
+            width: '250px',
+            fontSize: '18px'
+        }
     })
 
     const loadMoreBtn = () => {
