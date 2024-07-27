@@ -43,6 +43,9 @@ function App() {
     }
 
     const handleSetQuery = (query) => {
+        if(searchValue === query){
+            return
+        }
       setHits([])
       setPage(1)
       setSearchValue(query)
